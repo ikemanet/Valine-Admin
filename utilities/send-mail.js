@@ -34,7 +34,7 @@ exports.notice = (comment) => {
         return;
     }
 
-    let emailSubject = '👉 咚！「' + process.env.SITE_NAME + '」上有新评论了';
+    let emailSubject = '✨ 咚！「' + process.env.SITE_NAME + '」上有新留言了';
     let emailContent =  noticeTemplate({
                             siteName: process.env.SITE_NAME,
                             siteUrl: process.env.SITE_URL,
@@ -67,10 +67,10 @@ exports.send = (currentComment, parentComment)=> {
 
     // 站长被 @ 不需要提醒
     if (parentComment.get('mail') === process.env.TO_EMAIL 
-        || parentComment.get('mail') === process.env.SMTP_USER || parentComment.get('mail') === 'mzysst@gmail.com') {
+        || parentComment.get('mail') === process.env.SMTP_USER) {
         return;
     }
-    let emailSubject = '✨叮咚！「' + process.env.SITE_NAME + '」博客上有人回复了你的留言';
+    let emailSubject = '✨ 叮咚！「' + process.env.SITE_NAME + '」博客上有人回复了你的留言';
     let emailContent = sendTemplate({
                             siteName: process.env.SITE_NAME,
                             siteUrl: process.env.SITE_URL,
